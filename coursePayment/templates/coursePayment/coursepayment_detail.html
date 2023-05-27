@@ -1,0 +1,10 @@
+{% extends "users/base.html" %} {% block content %}
+<a href="{% url 'content-list' object.course.id %}"
+  ><h1>{{ object.course.title }}</h1>
+  <h3>By {{ object.course.owner.user.username }}</h3>
+  <h3>Timeline: {{ object.course.timeline }}</h3>
+  <p>{{ object.course.description }}</p></a
+>
+<a class="button" href="{% url 'course-forum' object.course.id %}">Forum</a>
+<a class="button" href="{% url 'st-exam' object.course.id %}">Exam</a>
+{% endblock content %}

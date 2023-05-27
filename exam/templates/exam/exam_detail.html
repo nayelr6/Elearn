@@ -1,0 +1,26 @@
+{% extends "users/base.html" %} {% block content %}
+
+<style>
+  .box {
+    font-size: xx-large;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+  }
+</style>
+<body>
+  <div class="box">
+    <p>{{ exam.course.title }} - {{ exam.Exam_date }}</p>
+    <button>
+      <a
+        href="{% url 'exam-question-list' course_pk=exam.course.id exam_id=exam.id %}"
+        >View Questions</a
+      >
+    </button>
+    <button>
+      <a href="{% url 'delete-exam' course_pk=exam.course.id pk=exam.id %}"
+        >Delete Exam</a
+      >
+    </button>
+    {% endblock content %}
+  </div>
+</body>

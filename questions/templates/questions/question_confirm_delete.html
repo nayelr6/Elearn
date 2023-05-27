@@ -1,0 +1,9 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <p>Are you sure you want to delete the question?</p>
+        <button type="submit">Yes</button>
+        <button><a href="{% url 'exam-question-detail' course_pk=question.exam.course.id exam_id=question.exam.id pk=question.id %}">No</a></button>    
+    </form>
+{% endblock content %}

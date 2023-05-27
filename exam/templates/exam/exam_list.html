@@ -1,0 +1,20 @@
+{% extends "users/base.html" %} {% block content %}
+<style>
+  .box {
+    font-size: xx-large;
+    margin-bottom: 20vh;
+  }
+</style>
+<body>
+  <div class="box">
+    {% for exam in exams %}
+    <p>
+      <a href="{% url 'exam-detail' course_pk=exam.course.id pk=exam.id %}"
+        >{{ exam.course.title }} - {{ exam.Exam_date }}</a
+      >
+    </p>
+    {% endfor %}
+    <button><a href="{% url 'exam-create' course_pk=pk %}">Add Exam</a></button>
+    {% endblock content %}
+  </div>
+</body>

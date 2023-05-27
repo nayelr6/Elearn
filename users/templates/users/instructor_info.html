@@ -1,0 +1,43 @@
+{% extends "users/base.html" %}{%load static%} {% block content %}
+<style>
+  .container {
+    position: static;
+    display: grid;
+    text-align: center;
+  }
+  .imagestyle {
+    display: block;
+    margin: 0 auto;
+  }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./about_styling.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        src="{% static 'users/image/brucewayne.jpeg' %}"
+        alt="Bruce Wayne"
+        class="imagestyle"
+      />
+      <h1>{{ instructor.user.username }}</h1>
+      <h2>Bruce Wayne</h2>
+      {% for certification in certifications %}
+      <h2>{{ certification.certificates }}</h2>
+      {% empty %}
+      <p>This person has no certifications yet</p>
+      {% endfor %}
+      <h4>
+        Graduated from Gotham University, class of 86. He shows keen interest in
+        Cloud Computing, Artificial Intelligence and Computer Security
+      </h4>
+    </div>
+  </body>
+</html>
+{% endblock content %}

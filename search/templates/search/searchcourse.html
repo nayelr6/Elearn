@@ -1,0 +1,29 @@
+<!-- searchcourse.html -->
+
+{% extends 'users/base.html' %} {% block content %}
+<h1>Search Results</h1>
+
+<style>
+  .course {
+    display: flex;
+    position: absolute;
+  }
+</style>
+<form method="get">
+  <input type="text" name="q" placeholder="Search courses" />
+  <button type="submit">Search</button>
+</form>
+<div class="course">
+  {% if courses %}
+  <ul>
+    {% for course in courses %}
+    <li>
+      <a href="{% url 'course-detail' course.pk %}">{{ course.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <h1>No courses found.</h1>
+  {% endif %}
+</div>
+{% endblock %}

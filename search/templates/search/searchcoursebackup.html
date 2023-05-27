@@ -1,0 +1,13 @@
+<!-- searchcourse.html -->
+{% extends 'users/base.html' %} {% block content %}
+<h1>Search Results</h1>
+<hr />
+{% if courses %}
+<ul>
+  {% for course in courses %}
+  <li><a href="{% url 'course-detail' course.pk %}">{{ course.title }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No courses found.</p>
+{% endif %} {% endblock content %}

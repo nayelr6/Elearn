@@ -1,0 +1,36 @@
+{% extends 'users/base.html' %} {% block content %}
+<style>
+  .new {
+    text-align: justify;
+    font-size: x-large;
+    display: flex;
+  }
+  button[type="submit"] {
+    background-color: rgb(20, 182, 252);
+    color: black;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  input[type="title"],
+  input[type="fees"],
+  input[type="description"],
+  input[type="timeline"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+</style>
+
+<div class="new">
+  <form method="POST">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit">Create</button>
+  </form>
+</div>
+{% endblock content %}

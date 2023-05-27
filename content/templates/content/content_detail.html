@@ -1,0 +1,7 @@
+{% extends 'users/base.html' %} {% block content %}
+<h1>{{ content.content_title }}</h1>
+<video controls autoplay width="100%">
+  <source src="{{content.video.url}}" type="video/mp4" />
+</video>
+<h3>{{ content.notes }}</h3>
+{% endblock content %}

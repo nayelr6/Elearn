@@ -1,0 +1,9 @@
+{% extends 'users/base.html' %} {% block content %}
+<form method="POST">
+  {% csrf_token %}
+  <h1>Unenroll Course</h1>
+  <h2>Are you sure you want to unenroll from this course</h2>
+  <button type="submit">Yes</button>
+  <button><a href="{% url 'enrolled-course-detail' object.id %}">No</a></button>
+</form>
+{% endblock content %}

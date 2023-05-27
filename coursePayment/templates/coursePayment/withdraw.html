@@ -1,0 +1,10 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <h3>Total deposit: {{ amount }}</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="text"/>
+        <button type="submit">Withdraw</button>
+    </form>
+{% endblock content %}

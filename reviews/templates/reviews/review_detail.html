@@ -1,0 +1,8 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <p>{{ object.student_id.user.username }}</p>
+    <p>{{ object.rating }}</p>
+    <p>{{ object.comment }}</p>
+    <button><a href="{% url 'review-update' course_id=object.course_id.pk pk=object.pk %}">Update</a></button>
+    <button><a href="{% url 'review-delete' course_id=object.course_id.pk pk=object.pk %}">Delete</a></button>
+{% endblock content %}

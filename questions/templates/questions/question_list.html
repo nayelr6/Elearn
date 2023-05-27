@@ -1,0 +1,8 @@
+{% extends "users/base.html" %}
+{% block content %}
+    {% for question in questions %}
+        <p><a href="{% url 'exam-question-detail' course_pk=question.exam.course.id exam_id=question.exam.id pk=question.id %}">{{ question.qs }}</a></p>
+    {% endfor %}
+    <br>
+    <button><a href="{% url 'exam-question-create' course_pk=exam.course.id exam_id=exam.id %}">Add Questions</a></button>
+{% endblock content %}

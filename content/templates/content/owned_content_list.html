@@ -1,0 +1,12 @@
+{% extends 'users/base.html' %}
+{% block content %}
+    <h1>Content</h1>
+    {% for content in contents %}
+        {% if user == content.c_id.owner.user %}
+            <h3><a href="{% url 'owned-content-detail' pk=content.id course_pk=content.c_id.pk %}">{{ content.content_title }}</a></h3>        
+        {% else %}
+            <h3><a href="{% url 'content-detail' pk=content.id course_pk=content.c_id.pk %}">{{ content.content_title }}</a></h3>
+        {% endif %}
+    {% endfor %}
+    <button><a href="{% url 'content-create' course_pk=course_id %}">Add Content</a></button>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "users/base.html" %} {% block content %}
+
+<style>
+  .text {
+    text-align: center;
+  }
+</style>
+<div class="text">
+  <form method="POST">
+    {% csrf_token %} {{ form.as_p }} Account number: <input type="text" />
+    <p>Are you sure you want to buy this course?</p>
+    <button type="submit">Yes</button>
+    <button><a href="{% url 'enrolled-courses' %}">No</a></button>
+  </form>
+</div>
+{% endblock content %}

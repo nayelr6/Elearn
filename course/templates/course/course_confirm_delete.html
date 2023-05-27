@@ -1,0 +1,14 @@
+{% extends 'users/base.html' %} {% block content %}
+
+<body>
+  <div class="box">
+    <form method="POST">
+      {% csrf_token %}
+      <h1>Delete Course</h1>
+      <h2>Are you sure you want to delete the post {{ object.title }}</h2>
+      <button type="submit">Yes</button>
+      <button><a href="{% url 'course-detail' object.id %}">No</a></button>
+    </form>
+    {% endblock content %}
+  </div>
+</body>

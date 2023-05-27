@@ -1,0 +1,6 @@
+{% extends "users/base.html" %} {% block content %}
+<h1>Update Certificate(s)</h1>
+<p>{{ object.certificates }}</p>
+<button><a href="{% url 'certification-update' object.id %}">Update</a></button>
+<button><a href="{% url 'certification-delete' object.id %}">Delete</a></button>
+{% endblock content %}

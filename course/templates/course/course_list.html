@@ -1,0 +1,13 @@
+{% extends 'users/base.html' %} {% block content %} {% for course in courses %}
+<h1><a href="{% url 'course-detail' course.id %}">{{ course.title }}</a></h1>
+<h3>
+  By
+  <a href="{% url 'instructor-info' course.owner.id %}"
+    >{{ course.owner.user.username }}</a
+  >
+</h3>
+<p>Rating: {{ course.avg_rating }}</p>
+<p>Price: {{ course.fees }}</p>
+<h3>Timeline: {{ course.timeline }}</h3>
+<p>{{ course.description }}</p>
+{% empty %} {% endfor %} {% endblock content %}

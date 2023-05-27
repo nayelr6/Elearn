@@ -1,0 +1,10 @@
+{% extends 'users/base.html' %}
+{% block content %}
+<h1>{{ content.content_title }}</h1>
+<video controls autoplay width="70%">
+    <source src="{{content.video.url}}" type="video/mp4" />
+</video>
+<p>{{ content.notes }}</p>
+<button><a href="{% url 'content-update' pk=content.id course_pk=content.c_id.pk %}">Update</a></button>
+<button><a href="{% url 'content-delete' pk=content.id course_pk=content.c_id.pk %}">Delete</a></button>
+{% endblock content %}

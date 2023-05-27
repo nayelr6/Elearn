@@ -1,0 +1,34 @@
+{% load static %} {% block scripts %}
+<style>
+  .quizbox {
+    margin-bottom: 20vh;
+    text-align: center;
+    margin-top: 10vh;
+    font-size: 20px;
+  }
+  button[type="submit"] {
+    margin-top: 5vh;
+    background-color: rgb(73, 124, 244);
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  body {
+    background-image: url("{% static 'users/image/quiz.jpg' %}");
+  }
+</style>
+
+<div class="quizbox">
+  <script src="{% static 'coursePayment/jquery-3.6.4.js' %}" defer></script>
+  <script src="{% static 'coursePayment/quiz.js' %}" defer></script>
+  {% endblock scripts %}
+  <h2>{{ course.title }} Exam</h2>
+  <form id="quiz-form">
+    {% csrf_token %}
+    <div id="quiz-box"></div>
+    <button type="submit">Save</button>
+  </form>
+</div>

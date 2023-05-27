@@ -1,0 +1,11 @@
+{% extends "users/base.html" %} {% block content %}
+<form method="POST">
+  {% csrf_token %} Are you sure you want to delete this exam?
+  <button type="submit">Yes</button>
+  <button>
+    <a href="{% url 'exam-detail' course_pk=object.course.id pk=object.id %}"
+      >No</a
+    >
+  </button>
+</form>
+{% endblock content %}

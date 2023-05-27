@@ -1,0 +1,38 @@
+{% extends "users/base.html" %} {%load static%}{% block content %}
+<style>
+  .text {
+    position: static;
+    font-size: large;
+    display: grid;
+    text-align: center;
+  }
+  .button {
+    display: inline-table;
+    padding: 10px 20px;
+    background-color: #4dc7ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background-color: #009de6;
+  }
+</style>
+<body>
+  <div class="text">
+    {% for certification in certifications %}
+    <p>
+      <a href="{% url 'certification-detail' certification.id %}"
+        >{{ certification.certificates }}</a
+      >
+    </p>
+    {% empty %}
+    <p>You have no certificates yet.</p>
+    {% endfor %}
+    <a class="button" href="{% url 'certification-new' %}">Add Certificates</a>
+    {% endblock content %}
+  </div>
+</body>

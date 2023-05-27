@@ -1,0 +1,29 @@
+{% extends 'users/base.html' %} {%load static%} {% block content %}
+
+<style>
+  body {
+    background-image: url("{% static 'users/image/contactus4.jpg' %}");
+    background-size: cover;
+  }
+  .text {
+    position: static;
+    font-size: x-large;
+    display: grid;
+    text-align: center;
+    opacity: 1;
+  }
+</style>
+<body>
+  <div class="text">
+    <h2>Contact us</h2>
+    <p>
+      Email us at
+      <a href="mailto:customersupport@e-learn.com"
+        >customersupport@e-learn.com</a
+      >
+    </p>
+    <p>Call us at <a href="tel:+880 1735712325">+880 1735712325</a></p>
+    <p>Send us a text on <a href="sms:+880 1735712325">+880 1735712325</a></p>
+  </div>
+</body>
+{% endblock content %}

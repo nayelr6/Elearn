@@ -1,0 +1,9 @@
+{% extends 'users/base.html' %}
+{% block content %}
+    {% for payment in object %}
+        <h1><a href="{% url 'view-purchased-course' payment.id %}">{{ payment.course.title }}</a></h1>
+        <h3>By {{ payment.course.owner.user.username }}</h3>
+        <h3>Timeline: {{ payment.course.timeline }}</h3>
+        <p>{{ payment.course.description }}</p>
+    {% endfor %}
+{% endblock content %}

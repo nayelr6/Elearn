@@ -1,0 +1,27 @@
+{% extends 'users/base.html' %} {% block content %}
+<style>
+  .box2 {
+    position: static;
+    font-size: large;
+    display: grid;
+    text-align: center;
+  }
+</style>
+
+<body>
+  <div class="box2">
+    {% for course in courses %}
+    <h1>
+      <a href="{% url 'owned-course-detail' course.id %}">{{ course.title }}</a>
+    </h1>
+    <h3>By {{ course.owner.user.username }}</h3>
+    <p>Price: {{ course.fees }}</p>
+    <h3>Timeline: {{ course.timeline }}</h3>
+    <p>{{ course.description }}</p>
+    {% endfor %}
+  </div>
+  <div class="box2">
+    <a class="button" href="{% url 'course-create' %}">Create a New Course</a>
+  </div>
+</body>
+{% endblock content %}

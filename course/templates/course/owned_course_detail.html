@@ -1,0 +1,42 @@
+{% extends 'users/base.html' %} {% block content %}
+<style>
+  .box {
+    text-align: center;
+    font-size: large;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20 px;
+    border-radius: 10px;
+    max-width: 600px;
+
+    margin-top: 10vh;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  button {
+    background-color: green;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+<body>
+  <div class="box">
+    <a href="{% url 'owned-content-list' object.id %}"
+      ><h1>{{ object.title }}</h1></a
+    >
+    <h3>By {{object.owner.user.username }}</h3>
+    <h3>Price: {{ object.fees }}</h3>
+    <h3>Timeline: {{ object.timeline }}</h3>
+    <p>{{ object.description }}</p>
+    <a class="button" href="{% url 'course-update' object.id %}">Update</a>
+    <a class="button" href="{% url 'course-delete' object.id %}">Delete</a>
+    <a class="button" href="{% url 'exam-list' object.id %}">View Exams</a>
+    <a class="button" href="{% url 'withdraw' object.id %}">Withdraw</a>
+    {% endblock content %}
+  </div>
+</body>

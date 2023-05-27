@@ -1,0 +1,43 @@
+{% extends 'users/base.html' %} {% block content %}
+<style>
+  .courseDetail {
+    font-size: 20px;
+  }
+  .btn-group {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+  }
+
+  .btn {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px;
+    border-radius: 5px;
+  }
+
+  .btn:hover {
+    background-color: #3e8e41;
+  }
+</style>
+
+<body>
+  <div class="courseDetail">
+    <h1>{{ object.title }}</h1>
+    <h3>By {{object.owner.user.username }}</h3>
+    <h3>Price: {{ object.fees }}</h3>
+    <h3>Timeline: {{ object.timeline }}</h3>
+    <p>{{ object.description }}</p>
+    <a class="button" href="{% url 'course-enroll' object.pk %}">Enroll</a>
+    <a class="button" href="{% url 'review-list' object.pk %}">Reviews</a>
+  </div>
+</body>
+{% endblock content %}

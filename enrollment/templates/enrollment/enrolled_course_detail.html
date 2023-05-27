@@ -1,0 +1,46 @@
+{% extends "users/base.html" %} {% block content %}
+<style>
+  .text {
+    text-align: center;
+  }
+  .btn-group {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+  }
+
+  .btn {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px;
+    border-radius: 5px;
+  }
+
+  .btn:hover {
+    background-color: #3e8e41;
+  }
+</style>
+<div class="text">
+  <a href="{% url 'content-list' object.course_id.id %}"
+    ><h1>{{ object.course_id.title }}</h1>
+    <h3>By {{ object.course_id.owner.user.username }}</h3>
+    <h3>Price: {{ object.course_id.fees }}</h3>
+    <h3>Timeline: {{ object.course_id.timeline }}</h3>
+    <p>{{ object.course_id.description }}</p></a
+  >
+  <a class="button" href="{% url 'unenroll-course' object.id %}">Unenroll</a>
+  <a class="button" href="{% url 'purchase-course' object.id %}">Buy Course</a>
+  <a class="button" href="{% url 'review-create' object.id %}">Add Review</a>
+  <a class="button" href="{% url 'course-forum' object.course_id.id %}"
+    >Forum</a
+  >
+</div>
+{% endblock content %}

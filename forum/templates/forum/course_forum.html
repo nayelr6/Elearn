@@ -1,0 +1,13 @@
+{% extends "users/base.html" %}
+{% block content %}
+    {% for message in messages %}
+        <h4>{{ message.writer.username }}</h4>
+        <p>{{ message.msg }}</p>
+    {% endfor %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Send</button>
+    </form>
+    <button><a href="{% url 'enrolled-course-detail' Eid.id %}">Back to course</a></button>
+{% endblock content %}

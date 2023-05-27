@@ -1,0 +1,40 @@
+{% extends 'users/base.html' %} {% block content %}
+<style>
+  .box {
+    text-align: center;
+    font-size: x-large;
+    font-size: x-large;
+    background-color: rgba(203, 240, 253, 0.7);
+    padding: 50 px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin-top: 10vh;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .button {
+    display: inline-table;
+    padding: 10px 20px;
+    background-color: #4dc7ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background-color: #009de6;
+  }
+</style>
+<body>
+  <div class="box">
+    <form method="POST">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Post</button>
+    </form>
+    {% endblock content %}
+  </div>
+</body>
